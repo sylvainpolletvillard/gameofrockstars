@@ -58,7 +58,7 @@ def a_brave(a_sword, the_world):
     Turning_Back = 2
     the_ground = the_power(a_sword)
     your_domain = the_world / the_ground
-    Ashes = Quick_Fire(your_domain, Turning_Back) # modulo 2
+    Ashes = Fire(your_domain, Turning_Back)
     return Ashes >= Violence
 def the_power(my_mind):
     my_strength = 0
@@ -69,14 +69,15 @@ def the_power(my_mind):
         my_strength = my_strength * the_ennemy
         my_mind -= 1
     return my_strength
- # modulus, super slow
 def Fire(your_heart, your_soul):
-    while not your_heart < your_soul:
-        your_heart = your_heart - your_soul
+    my_heart = your_soul
+    while my_heart < your_heart:
+        my_heart = my_heart * 2
+    while my_heart >= your_soul:
+        if your_heart >= my_heart:
+            your_heart = your_heart - my_heart
+        my_heart = my_heart / 2
     return your_heart
- # not valid rockstar, see https://github.com/dylanbeattie/rockstar/issues/192
-def Quick_Fire(a_number, a_mod):
-    return a_number % a_mod
 def the_judge(a_god, a_man):
     a_verdict = 0
     Beauty = 9
